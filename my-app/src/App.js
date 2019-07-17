@@ -23,11 +23,11 @@ class App extends React.Component{
 
   render(){
     return(
-      <div>
-        <p>Welcome {this.state.textValue}</p>
+      <div className='App'>
+        <p className='Text'>Welcome {this.state.textValue}</p>
         <form onSubmit={this.getText}>
-          <input id='textBox' type='text' ></input>
-          <input type='submit' value='submit'></input>
+          <input id='textBox' type='text' size="50  "></input><br/>
+          <input className='Button' type='submit' value='submit'></input>
         </form>
       </div>
     );

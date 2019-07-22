@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 
@@ -9,14 +8,13 @@ class App extends React.Component{
     super(props);
     this.state={
       textValue:'DefaultValue'
-    }
-    this.getText = this.getText.bind(this);
-  
+    };
+    this.textBox = React.createRef();
   }
 
-  getText(event){
+  getText = (event) => {
     this.setState({
-      textValue:document.getElementById('textBox').value
+      textValue:this.textBox.current.value
     });
     event.preventDefault();
   }
@@ -26,7 +24,7 @@ class App extends React.Component{
       <div className='App'>
         <p className='Text'>Welcome {this.state.textValue}</p>
         <form onSubmit={this.getText}>
-          <input id='textBox' type='text' size="50  "></input><br/>
+          <input type='text' size="50" ref={this.textBox}></input><br/>
           <input className='Button' type='submit' value='submit'></input>
         </form>
       </div>
